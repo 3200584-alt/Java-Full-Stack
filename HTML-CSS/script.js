@@ -74,3 +74,42 @@ function dishwash(vessels){
     console.log("We have to wash "+vessels+" Vessels");    
 }
 dishwash(2);
+function num(n) 
+{
+    if(n>10){
+        return;
+    }    
+    console.log(n);
+    n+=1;
+    num(n);
+}
+num(1);
+function guess(n)
+{
+    let guess_num = Number(prompt("Enter a number: "));
+    if(n==guess_num)
+    {
+        console.log("You guessed it rigth");
+    }
+    else if (n<guess_num)
+    {
+        console.log("Try a small number."+guess_num);
+        guess(n);
+    }
+    else{
+        console.log("Try a big number."+guess_num);
+        guess(n);
+    }
+}
+let number=Math.floor(Math.random()*100)+1;
+guess(number);
+let chocolates=["Melodi","fivestar","kitkat","kachamango","alphenlebe","Darkchocolate"];
+let sales={
+    siddikha:chocolates[0],
+    Dinesh:chocolates[1],
+    sushmitha:chocolates[2],
+    Damu:chocolates[3],
+    abilash:chocolates[5],
+    Sana:chocolates[4]
+};
+console.log(sales.Sana);
