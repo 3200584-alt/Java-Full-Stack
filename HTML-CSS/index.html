@@ -3,57 +3,595 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Madhan</title>
+    <title>Swetha - Software Engineer Portfolio</title>
     <style>
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0a0e27 0%, #16213e 100%);
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(10, 14, 39, 0.95);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 255, 255, 0.2);
+            border-radius: 0 0 30px 30px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #00ffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s, text-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: #00ffff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a2a4a 0%, #0f1929 100%);
+            padding: 60px 40px;
+            border-radius: 40px;
+            box-shadow: 0 10px 40px rgba(0, 255, 255, 0.15);
+            text-align: center;
+            margin-bottom: 30px;
+            animation: slideDown 0.6s ease-out;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            color: #00ffff;
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        .hero .title {
+            font-size: 1.5em;
+            color: #00d9ff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 217, 255, 0.4);
+        }
+
+        .hero .intro {
+            font-size: 1.1em;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #00ffff 0%, #00d9ff 100%);
+            color: #0a0e27;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 1.2em;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+        }
+
+        /* Section */
+        section {
+            background: linear-gradient(135deg, #1a2a4a 0%, #0f1929 100%);
+            padding: 40px;
+            border-radius: 40px;
+            box-shadow: 0 10px 40px rgba(0, 255, 255, 0.15);
+            margin-bottom: 30px;
+            animation: fadeIn 0.8s ease-out;
+            border: 2px solid rgba(0, 255, 255, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            color: #00ffff;
+            font-size: 2em;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #00d9ff;
+            padding-bottom: 10px;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+        }
+
+        h3 {
+            color: #00d9ff;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* About Section */
+        .about-content {
+            line-height: 1.8;
+            color: #d0d0d0;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #00ffff 0%, #00d9ff 100%);
+            color: #0a0e27;
+            padding: 15px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Projects Section */
+        .project {
+            background: rgba(0, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 25px;
+            margin-bottom: 20px;
+            border-left: 5px solid #00ffff;
+            transition: box-shadow 0.3s;
+            border: 2px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .project:hover {
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+            border-color: rgba(0, 255, 255, 0.5);
+        }
+
+        .project h4 {
+            color: #00ffff;
+            margin-bottom: 8px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .project p {
+            color: #c0c0c0;
+            margin-bottom: 8px;
+        }
+
+        .tech-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .tech-tag {
+            background: rgba(0, 255, 255, 0.3);
+            color: #00ffff;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            border: 1px solid rgba(0, 255, 255, 0.5);
+            transition: background 0.3s;
+        }
+
+        .tech-tag:hover {
+            background: rgba(0, 255, 255, 0.5);
+        }
+
+        /* Education Section */
+        .education-item {
+            background: rgba(0, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 25px;
+            margin-bottom: 15px;
+            border-left: 5px solid #00d9ff;
+            border: 2px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .education-item .degree {
+            font-weight: bold;
+            color: #00ffff;
+            font-size: 1.1em;
+            text-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+        }
+
+        .education-item .college {
+            color: #00d9ff;
+            margin-top: 5px;
+        }
+
+        .education-item .details {
+            color: #a0a0a0;
+            font-size: 0.9em;
+            margin-top: 8px;
+        }
+
+        .education-item ul {
+            color: #c0c0c0;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            background: rgba(0, 255, 255, 0.08);
+            padding: 20px;
+            border-radius: 25px;
+            text-align: center;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-item:hover {
+            border-color: rgba(0, 255, 255, 0.6);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+        }
+
+        .contact-item h4 {
+            color: #00ffff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+        }
+
+        .contact-item p {
+            color: #c0c0c0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(10, 14, 39, 0.95);
+            color: #c0c0c0;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 30px;
+            border-top: 2px solid rgba(0, 255, 255, 0.3);
+            box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.1);
+        }
+
+        footer p {
+            color: #00d9ff;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #00ffff 0%, #00d9ff 100%);
+            color: #0a0e27;
+            padding: 12px 35px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero .title {
+                font-size: 1.2em;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            section, .hero {
+                padding: 20px;
+                border-radius: 25px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+        }
     </style>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Self-Intro</h1>
-    <hr>
-    <h2>Madhan</h2>
-    <p>I am <b> Madhan </b>,I am doing <u> B.tech </u> 3 <sup> rd </sup>year in the field of <i> CSE </i> in Mother Theresa Engineering College-Melomoi.
-       <br> I have participated in <big> <i> Hackathon </i></big>which is an Intra College <small> Competition. </small> </p>
-    <p>Programming Languages:
-        <br>
-        <ol>
-        <li> C</li><li>Java</li><li>Python</li>
-    </ol></p>
-    <p>
-        <table>
-            <tr>
-                <th>5 <sup>th</sup> Semester </th>
-                <th>Marks</th>
-                <th>Grade</th>
-            </tr>
-            <tr>
-                <td id="two">DBMS</td>
-                <td>89</td>
-                <td><b>A</b></td>
-            </tr>
-            <tr>
-                <td class="one">SE</td>
-                <td>99</td>
-                <td><b>S</b></td>
-            </tr>
-            <tr>
-                <td>OS</td>
-                <td>80</td>
-                <td><b>B</b></td>
-            </tr>
-            <tr>
-                <td>CN</td>
-                <td>76</td>
-                <td><b>B</b></td>
-            </tr>
-            <tr>
-                <td>DS</td>
-                <td>78</td>
-                <td><b>B</b></td>
-            </tr>
-        </table>
-    </p>
-    <a href="/form.html" target="main">Form</a>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a onclick="scrollToSection('about')">About</a></li>
+            <li><a onclick="scrollToSection('skills')">Skills</a></li>
+            <li><a onclick="scrollToSection('projects')">Projects</a></li>
+            <li><a onclick="scrollToSection('education')">Education</a></li>
+            <li><a onclick="scrollToSection('contact')">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Swetha</h1>
+            <div class="title">Software Engineer</div>
+            <p class="intro">
+                Passionate and dedicated Software Engineer with expertise in full-stack development, 
+                cloud computing, and modern software architectures. Committed to writing clean, efficient code 
+                and delivering high-quality solutions that solve real-world problems.
+            </p>
+            <div class="social-links">
+                <a href="mailto:swetha@example.com" title="Email">📧</a>
+                <a href="#" title="LinkedIn">💼</a>
+                <a href="#" title="GitHub">💻</a>
+                <a href="#" title="Twitter">🐦</a>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>
+                    I am a passionate Software Engineer with a B.Tech degree in Computer Science and Engineering 
+                    from Mother Teresa Engineering College. With a strong foundation in software development, 
+                    database management, and system design, I am committed to building scalable and efficient applications.
+                </p>
+                <p style="margin-top: 15px;">
+                    I possess a keen interest in learning new technologies and frameworks, and I actively participate 
+                    in hackathons and coding competitions. My goal is to contribute to innovative projects that make 
+                    a positive impact in the tech industry.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Java</div>
+                <div class="skill-item">Python</div>
+                <div class="skill-item">C</div>
+                <div class="skill-item">JavaScript</div>
+                <div class="skill-item">HTML/CSS</div>
+                <div class="skill-item">React</div>
+                <div class="skill-item">Node.js</div>
+                <div class="skill-item">SQL</div>
+                <div class="skill-item">MongoDB</div>
+                <div class="skill-item">Git</div>
+                <div class="skill-item">REST APIs</div>
+                <div class="skill-item">AWS</div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            
+            <div class="project">
+                <h4>E-Commerce Platform</h4>
+                <p>
+                    Developed a full-stack e-commerce application with user authentication, product catalog, 
+                    shopping cart, and payment integration. Implemented responsive design for seamless user experience 
+                    across devices.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">Stripe API</span>
+                </div>
+            </div>
+
+            <div class="project">
+                <h4>Inventory Management System</h4>
+                <p>
+                    Built a comprehensive inventory management system with real-time tracking, 
+                    automated notifications, and advanced reporting features. Optimized database queries for 
+                    improved performance.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">Spring Boot</span>
+                    <span class="tech-tag">REST API</span>
+                </div>
+            </div>
+
+            <div class="project">
+                <h4>Machine Learning Prediction Model</h4>
+                <p>
+                    Developed a machine learning model for predictive analysis using Python and scikit-learn. 
+                    Achieved 92% accuracy in model predictions with extensive data preprocessing and feature engineering.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Scikit-learn</span>
+                    <span class="tech-tag">Pandas</span>
+                    <span class="tech-tag">Data Analysis</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2>Education</h2>
+            
+            <div class="education-item">
+                <div class="degree">B.Tech in Computer Science and Engineering (CSE)</div>
+                <div class="college">Mother Teresa Engineering College</div>
+                <div class="details">
+                    <strong>Grade:</strong> 8.2 CGPA<br>
+                    <strong>Duration:</strong> 2020 - 2024<br>
+                    <strong>Specialization:</strong> Full-Stack Development & Cloud Computing
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div class="degree">Relevant Coursework</div>
+                <div style="color: #555; margin-top: 10px;">
+                    <ul style="margin-left: 20px; color: #666;">
+                        <li>Data Structures & Algorithms</li>
+                        <li>Database Management Systems</li>
+                        <li>Operating Systems</li>
+                        <li>Computer Networks</li>
+                        <li>Software Engineering</li>
+                        <li>Web Development</li>
+                        <li>Cloud Computing Fundamentals</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">
+                I'd love to connect with you! Feel free to reach out through any of the following channels.
+            </p>
+            <div class="contact-content">
+                <div class="contact-item">
+                    <h4>📧 Email</h4>
+                    <p>swetha.engineer@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <h4>📱 Phone</h4>
+                    <p>+91 9876543210</p>
+                </div>
+                <div class="contact-item">
+                    <h4>📍 Location</h4>
+                    <p>Hyderabad, India</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 25px;">
+                <button class="btn" onclick="downloadResume()">Download Resume</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Swetha. All rights reserved. | Software Engineer | Mother Teresa Engineering College</p>
+    </footer>
+
+    <script>
+        // Smooth scroll to sections
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Download Resume function
+        function downloadResume() {
+            alert('Resume download feature would be implemented here. You can add a link to your actual resume file.');
+            // Example: window.location.href = 'path/to/resume.pdf';
+        }
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(section);
+        });
+
+        // Active navigation highlighting on scroll
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop - 100 && scrollPosition < sectionTop + sectionHeight) {
+                    console.log('Currently viewing: ' + section.id);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
