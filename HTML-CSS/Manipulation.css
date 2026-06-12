@@ -1,0 +1,15 @@
+img{
+    width: 480px;
+}
+body{
+    background-color: pink;
+}
+#content{
+    display: flex;
+    gap: 1cm;
+}
+h1{
+     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    color:purple;
+}
